@@ -74,6 +74,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             manifestUrl: 'https://github.com/junwulin177/tonconnect-manifest.json',
             buttonRootId: 'ton-connect'
         });
+        tonConnectUI.uiOptions = {
+          twaReturnUrl: 'https://t.me/Junwu17777_bot/Test123'
+        };
         const connectedWallet = tonConnectUI.connectWallet();
         // Do something with connectedWallet if needed
         console.log(connectedWallet);
