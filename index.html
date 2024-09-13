@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://telegram.org/js/games.js"></script>
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -18,7 +19,113 @@
     </style>
     </head>
 <body>
-    <h1>我的第一个标题</h1>
+    <script src="https://telegram.org/js/games.js"></script>
+    <h1>我的第一个标题!！!！</h1>
     <p>我的第一个段落。</p>
+    <pre id="log"></pre>
+
+    <script>(function() {
+    var originalConsoleLog = console.log; // 保存原始的console.log函数
+    var logElement = document.getElementById('log'); // 获取页面中的日志显示元素
+
+    // 重写console.log函数
+    console.log = function() {
+        var message = Array.prototype.slice.call(arguments).map(function(arg) {
+            return typeof arg === 'object' ? JSON.stringify(arg) : arg;
+        }).join(' ');
+
+        // 调用原始的console.log
+        originalConsoleLog.apply(console, arguments);
+
+        // 将日志信息添加到页面元素中
+        logElement.textContent += message + '\n';
+    };
+})();</script>
+    <button id="openInvoiceButton">Open Invoice</button>
+
+    <script>
+        // 确保 Telegram Web App 对象已加载
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const invoiceLink = 'https://t.me/$t0ojvBbuGFf3AAAAiEvHMNCY4VM'; // 替换为你的发票链接
+
+            // 获取按钮元素
+            const openInvoiceButton = document.getElementById('openInvoiceButton');
+
+            // 为按钮添加点击事件监听器
+            openInvoiceButton.addEventListener('click', () => {
+                if (window.Telegram.WebApp) {
+                    window.Telegram.WebApp.openInvoice(invoiceLink);
+                } else {
+                    console.error('Telegram WebApp is not available.');
+                }
+            });
+        });
+    </script>
+    <button onclick="TelegramGameProxy.shareScore()">Share score</button>
+ <script>
+        // 检查是否在 Telegram Web App 环境中
+        if (window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+
+            // 初始化 Web App
+            tg.ready();
+
+            // 设置 Web App 的背景颜色
+            tg.setBackgroundColor("#ffffff");
+            tg.setHeaderColor("#FF0000");
+            // 设置 Web App 的主按钮
+            tg.MainButton.text = "Main Button";
+            tg.MainButton.show();
+
+            // // 处理发送数据按钮点击事件
+            // document.getElementById("sendDataButton").addEventListener("click", () => {
+            //     tg.MainButton.text = "Main Button！！！";
+            // tg.MainButton.show();
+            //     const data = { message: "Hello from Web App!" };
+            //     // tg.sendData(JSON.stringify(data));
+                
+            // });
+
+            // // 处理关闭按钮点击事件
+            // document.getElementById("closeButton").addEventListener("click", () => {
+            //     tg.close();
+            // });
+console.log("！！！！！！！！！！！！！！！！！！");
+            // 监听 Web App 的关闭事件
+            tg.onEvent("mainButtonClicked", () => {
+                 console.log("Main button clicked!");
+                tg.setHeaderColor("#ffffff")
+                alert("Main button clicked!");
+                // 调用 Telegram 支付 API
+                    tg.openInvoice({
+                    title: "Product Name",
+                    description: "Product Description",
+                    payload: "unique_payload",
+                    provider_token: "",
+                    start_parameter: "",
+                    currency: "XTR",
+                    prices: [{ label: "Product", amount: 1 }] // 价格以最小货币单位表示（例如：1000 表示 $10.00）
+                });
+            });
+
+            // 监听 Web App 的关闭事件
+            tg.onEvent("backButtonClicked", () => {
+                alert("Back button clicked!");
+            });
+
+            // 监听 Web App 的关闭事件
+            tg.onEvent("viewportChanged", (viewport) => {
+                console.log("Viewport changed:", viewport);
+            });
+
+            // 监听 Web App 的关闭事件
+            tg.onEvent("themeChanged", (theme) => {
+                console.log("Theme changed:", theme);
+            });
+        } else {
+            alert("This page is not running inside Telegram Web App.");
+        }
+    </script>
+    
 </body>
 </html>
