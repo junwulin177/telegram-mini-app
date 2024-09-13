@@ -84,6 +84,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
     </script>
+        <div id="ton-transaction"></div>
 <button id="transaction">Transaction TON</button>
 
     <script>
@@ -103,6 +104,10 @@ const transaction = {
 }
 
 try {
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://junwulin177.github.io/telegram-mini-app/tonconnect-manifest.json',
+            buttonRootId: 'ton-transaction'
+        });
     const result = tonConnectUI.sendTransaction(transaction);
 
     // you can use signed boc to find the transaction 
