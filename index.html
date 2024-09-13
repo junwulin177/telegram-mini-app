@@ -65,9 +65,18 @@
 <button id="Connect">Connect TON</button>
 
     <script>
-            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+                window.addEventListener('DOMContentLoaded', (event) => {
+
+            // 为按钮添加点击事件监听器
+            Connect.addEventListener('click', () => {
+                            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
         manifestUrl: 'https://github.com/junwulin177/tonconnect-manifest.json',
         buttonRootId: 'openInvoiceButton'
+            const connectedWallet = tonConnectUI.connectWallet();
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
+            });
+        });
     });
 
     </script>
