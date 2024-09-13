@@ -71,7 +71,7 @@
     });
         // 确保 Telegram Web App 对象已加载
         window.addEventListener('DOMContentLoaded', (event) => {
-            const connectedWallet = await tonConnectUI.connectWallet();
+            const connectedWallet = tonConnectUI.connectWallet();
         // Do something with connectedWallet if needed
         console.log(connectedWallet);
         });
