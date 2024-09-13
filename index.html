@@ -62,7 +62,16 @@
             });
         });
     </script>
+<button id="Connect">Connect TON</button>
 
+    <script>
+        // 确保 Telegram Web App 对象已加载
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const connectedWallet = await tonConnectUI.connectWallet();
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
+        });
+    </script>
     <script>
     const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
         manifestUrl: 'https://github.com/junwulin177/tonconnect-manifest.json',
