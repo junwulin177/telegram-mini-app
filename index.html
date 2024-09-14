@@ -30,6 +30,7 @@
 <script>
 Telegram.Passport.createAuthButton('telegram_passport_auth', {
   bot_id: 6688523680, // 这里填入你的 Bot ID
+  payload: 'payload',
   scope:[
           { type: 'id_document', selfie: true },
           { type: 'address_document' },
