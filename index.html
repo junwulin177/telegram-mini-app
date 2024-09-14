@@ -21,10 +21,30 @@
 <body>
     <script src="https://telegram.org/js/games.js"></script>
     <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <script src="telegram-passport.js"></script>
     <h1>我的第一个标题!！!！</h1>
     <p>我的第一个段落。</p>
     <pre id="log"></pre>
 
+<div id="telegram_passport_auth"></div>
+<script>
+  Telegram.Passport.createAuthButton('telegram_passport_auth', {
+    bot_id:       6688523680, // place id of your bot here
+    scope:        {data: [{type: 'id_document', selfie: true}, 'address_document', 'phone_number', 'email'], v: 1},
+    public_key:   '-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqCt3o4XtrbynIGE/RAnx
+TPIWnf/A+ILEpfGl+8uHDjvvurxqg/rNtV36XYyjuLlg1+tms6gVNZc49Kucww8u
+Br7qoJE6U6gJIETlyiXll/fzc1VEooJ0SEaSi602NZYV8it54kZfBVK0QOF3iL0A
+0Mx3vhI5d9lpKRgcB8Q3f6BGYN7n/BWmF/qhIkBxZoLAZVlOkWtpOmVXZBlP70B+
+6DLaXv/ixqBzc4MEVn3wG/lNiMa1mpOV498aqXCBY8SzE3eDyNmiq12ZY4ndR5vg
+xX0Q//K67dHT3ZQZGZmLUE5B3DTP9rZkkY/tCGDUO6ktFdbOaturzIrLi1GLjJ4L
+4wIDAQAB
+-----END PUBLIC KEY-----', // place public key of your bot here
+    nonce:        'ab2df83746a87d2f3bd6...', // place nonce here
+    callback_url: 'https://example.com/callback/' // place callback url here
+  });
+</script>
+    
     <script>(function() {
     var originalConsoleLog = console.log; // 保存原始的console.log函数
     var logElement = document.getElementById('log'); // 获取页面中的日志显示元素
