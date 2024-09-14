@@ -30,15 +30,12 @@
 <script>
 Telegram.Passport.createAuthButton('telegram_passport_auth', {
   bot_id: 6688523680, // 这里填入你的 Bot ID
-  scope: {
-    data: [
-      { type: 'id_document', selfie: true },
-      'address_document',
-      'phone_number',
-      'email'
-    ],
-    v: 1
-  },
+  scope:[
+          { type: 'id_document', selfie: true },
+          { type: 'address_document' },
+          { type: 'phone_number' },
+          { type: 'email' }
+        ],
   public_key: `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqCt3o4XtrbynIGE/RAnx
 TPIWnf/A+ILEpfGl+8uHDjvvurxqg/rNtV36XYyjuLlg1+tms6gVNZc49Kucww8u
