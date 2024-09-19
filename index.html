@@ -157,7 +157,7 @@ try {
 
     <button onclick="TelegramGameProxy.shareScore()">Share score</button>
  <script>
-         const urlParams = new URLSearchParams(window.location.search);
+         const urlParams = new URLSearchParams(window.location.hash);
     const params = {};
 
     urlParams.forEach((value, key) => {
