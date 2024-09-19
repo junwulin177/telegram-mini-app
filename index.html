@@ -54,6 +54,8 @@ xX0Q//K67dHT3ZQZGZmLUE5B3DTP9rZkkY/tCGDUO6ktFdbOaturzIrLi1GLjJ4L
   nonce: 'ab2df83746a87d2f3bd6...', // 这里填入 nonce
   callback_url: 'https://example.com/callback/' // 这里填入回调 URL
 });
+
+    
 </script>
     
     <script>(function() {
@@ -152,6 +154,14 @@ try {
     <script>
 
 </script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const params = {};
+
+    urlParams.forEach((value, key) => {
+      params[key] = value;
+    });
+
+    console.log('Received URL parameters:', params);
     <button onclick="TelegramGameProxy.shareScore()">Share score</button>
  <script>
         // 检查是否在 Telegram Web App 环境中
