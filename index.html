@@ -154,7 +154,10 @@ try {
     <script>
 
 </script>
-    const urlParams = new URLSearchParams(window.location.search);
+
+    <button onclick="TelegramGameProxy.shareScore()">Share score</button>
+ <script>
+         const urlParams = new URLSearchParams(window.location.search);
     const params = {};
 
     urlParams.forEach((value, key) => {
@@ -162,8 +165,6 @@ try {
     });
 
     console.log('Received URL parameters:', params);
-    <button onclick="TelegramGameProxy.shareScore()">Share score</button>
- <script>
         // 检查是否在 Telegram Web App 环境中
         if (window.Telegram.WebApp) {
             const tg = window.Telegram.WebApp;
