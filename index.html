@@ -78,6 +78,15 @@ xX0Q//K67dHT3ZQZGZmLUE5B3DTP9rZkkY/tCGDUO6ktFdbOaturzIrLi1GLjJ4L
     <button id="openInvoiceButton">Open Invoice</button>
 
     <script>
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                result += characters[randomIndex];
+            }
+            return result;
+        }
         // 确保 Telegram Web App 对象已加载
         window.addEventListener('DOMContentLoaded', (event) => {
             const invoiceLink = 'https://t.me/$tppythbuGFf4AAAAj6btdRuk0CE'; // 替换为你的发票链接
@@ -87,8 +96,10 @@ xX0Q//K67dHT3ZQZGZmLUE5B3DTP9rZkkY/tCGDUO6ktFdbOaturzIrLi1GLjJ4L
 
             // 为按钮添加点击事件监听器
             openInvoiceButton.addEventListener('click', () => {
+                        const randomString = generateRandomString(10); // 生成一个长度为10的随机字符串
+            const targetUrl = `https://t.me/Junwu17777_bot/Test123?startapp=${randomString}`;
         if (window.Telegram && window.Telegram.WebApp) {
-          window.Telegram.WebApp.openTelegramLink("https://t.me/Junwu17777_bot/Test123?startapp=commandFormB");
+          window.Telegram.WebApp.openTelegramLink(targetUrl);
         } else {
           console.error("Telegram WebApp is not available.");
         }
