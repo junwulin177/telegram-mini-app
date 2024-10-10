@@ -96,16 +96,14 @@ xX0Q//K67dHT3ZQZGZmLUE5B3DTP9rZkkY/tCGDUO6ktFdbOaturzIrLi1GLjJ4L
 
             const key = "exampleKey"; // 要检索的键
 
-            window.Telegram.WebApp.CloudStorage.getItem(key)
-                .then((value) => {
-                    if (value !== null) {
-                       console.error("检索数据时出错:", `检索到的数据: ${value}`);
-                    } else {
+            window.Telegram.WebApp.CloudStorage.getItem(key, (error, value) => 
+                {
+                    if (error) {
+                       
                         console.error("没有找到数据。");
+                    } else {
+                       console.error("检索数据时出错:", `检索到的数据: ${value}`); 
                     }
-                })
-                .catch((error) => {
-                    console.error("检索数据时出错:", error);
                 });
             // 为按钮添加点击事件监听器
             openInvoiceButton.addEventListener('click', () => {
