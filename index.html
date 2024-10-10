@@ -87,11 +87,11 @@ xX0Q//K67dHT3ZQZGZmLUE5B3DTP9rZkkY/tCGDUO6ktFdbOaturzIrLi1GLjJ4L
 
             // 为按钮添加点击事件监听器
             openInvoiceButton.addEventListener('click', () => {
-                if (window.Telegram.WebApp) {
-                    window.Telegram.WebApp.openInvoice(invoiceLink);
-                } else {
-                    console.error('Telegram WebApp is not available.');
-                }
+        if (window.Telegram && window.Telegram.WebApp) {
+          window.Telegram.WebApp.openTelegramLink("https://t.me/Junwu17777_bot/Test123?startapp=commandFormB");
+        } else {
+          console.error("Telegram WebApp is not available.");
+        }
             });
         });
     </script>
